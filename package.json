@@ -2,6 +2,7 @@
   "type": "module",
   "name": "line",
   "version": "1.0.0",
+  "engines":{"node":"14.0.0"},
   "description": "",
   "main": "axios.min.js",
   "scripts": {
