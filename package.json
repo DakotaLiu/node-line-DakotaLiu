@@ -2,18 +2,21 @@
   "type": "module",
   "name": "line",
   "version": "1.0.0",
-  "engines":{"node":"14.0.0"},
-  "description": "",
+  "engines": {
+    "node": "14.0.0"
+  },
+  "description": "Searching info based on TMDB",
   "main": "axios.min.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "",
+  "author": "Dakota Liu",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "linebot": "^1.5.3",
+    "nodemon": "^2.0.4",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
   },
