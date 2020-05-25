@@ -5,8 +5,10 @@
 
 
 ## 呼叫使用說明    
-![](https://i.imgur.com/JXbsou3.png)   
 輸入@或!來呼叫   
+
+![](https://i.imgur.com/JXbsou3.png)   
+  
 
 ## 輸入搜尋
 輸入關鍵字查詢電影、影集、電視節目、人物
