@@ -59,7 +59,17 @@ bot.on('message', async (event) => {
       } else {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/search/multi?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&query=' + msg + '&page=1&include_adult=false', json: true })
         for (let i = 0; i < data.results.length; i++) {
-          replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
+          if (data.results[i].media_type === 'movie') {
+            replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
+          } else if (data.results[i].media_type === 'tv') {
+            replyMsg += [i + 1] + '、' + data.results[i].original_name + data.results[i].name + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
+          } else {
+            if (data.results[i].known_for.media_type === 'movie') {
+              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].title + '\n' + data.results[i].known_for.original_title + data.results[i].known_for.title
+            } else {
+              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].title + '\n' + data.results[i].known_for.original_name + data.results[i].known_for.name
+            }
+          }
         }
       }
     }
