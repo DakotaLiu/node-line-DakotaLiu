@@ -3,9 +3,10 @@
 ![](https://i.imgur.com/hbA0O0q.png)   
 ![](https://i.imgur.com/9myJ1RP.png)  
 
-## 呼叫使用說明   
-![](https://i.imgur.com/OO5Te08.png)  
-輸入@或!來呼叫  
+
+## 呼叫使用說明    
+![](https://i.imgur.com/JXbsou3.png)   
+輸入@或!來呼叫   
 
 ## 輸入搜尋
 輸入關鍵字查詢電影、影集、電視節目、人物
