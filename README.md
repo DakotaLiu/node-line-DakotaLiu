@@ -1,7 +1,8 @@
-## 看得多神器 w/TMDB
-看電影、電視影集、電視頻道前，不論居家外出必備Line 機器人
+## 看得多神器@080mnkzf w/TMDB
+看電影、電視影集、電視頻道前，不論居家外出必備Line 機器人  
+![](https://i.imgur.com/hbA0O0q.png)   
+![](https://i.imgur.com/9myJ1RP.png)  
 
-![](https://i.imgur.com/AJ4vy9T.png)  
 ## 直接輸入
 直接輸入你要查詢的電影、影集、電視節目 
 
