@@ -22,9 +22,9 @@ bot.on('message', async (event) => {
   const msg = event.message.text
   let replyMsg = ''
 
-  const data = await rp({ uri: 'https://api.themoviedb.org/3/search/multi?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1&include_adult=false' + msg, json: true })
+  const data = await rp({ uri: 'https://api.themoviedb.org/3/search/multi?api_key=57746325b3861531af10661c0bfbc930&language=en-US&query=' + msg + '&page=1&include_adult=false', json: true })
   for (let i = 0; i < data.results.length; i++) {
-    replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].overview
+    replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
   }
 
   try {
@@ -36,33 +36,27 @@ bot.on('message', async (event) => {
           replyMsg += [i + 1] + '、' + data.results[i].title + '\n'
         }
         console.log(replyMsg)
-      }
-
-      if (msg.indexOf('2') !== -1) {
+      } else if (msg.indexOf('2') !== -1) {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/movie/top_rated?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
         replyMsg = '近期評價高的電影' + '\n'
         for (let i = 0; i < data.results.length; i++) {
           replyMsg += [i + 1] + '、' + data.results[i].title + '\n'
         }
         console.log(replyMsg)
-      }
-
-      if (msg.indexOf('3') !== -1) {
+      } else if (msg.indexOf('3') !== -1) {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/movie/upcoming?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
         replyMsg = '近期上新大片' + '\n'
         for (let i = 0; i < data.results.length; i++) {
           replyMsg += [i + 1] + '、' + data.results[i].title + '\n' + data.results[i].overview + '\n'
         }
-      }
-
-      if (msg.indexOf('4') !== -1) {
+      } else if (msg.indexOf('4') !== -1) {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/tv/popular?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
         replyMsg = '熱播電視節目' + '\n'
         for (let i = 0; i < data.results.length; i++) {
           replyMsg += [i + 1] + '、' + data.results[i].original_name + data.results[i].name + '\n'
         }
       }
-      if (msg.indexOf('5') !== -1) {
+      else (msg.indexOf('5') !== -1) {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/tv/airing_today?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
         replyMsg = '今日放映電視節目' + '\n'
         for (let i = 0; i < data.results.length; i++) {
