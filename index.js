@@ -65,9 +65,9 @@ bot.on('message', async (event) => {
             replyMsg += [i + 1] + '、' + data.results[i].original_name + data.results[i].name + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
           } else {
             if (data.results[i].known_for.media_type === 'movie') {
-              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].title + '\n' + data.results[i].known_for.original_title + data.results[i].known_for.title
+              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].known_for.original_title + data.results[i].known_for.title
             } else {
-              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].title + '\n' + data.results[i].known_for.original_name + data.results[i].known_for.name
+              replyMsg += [i + 1] + '、' + data.results[i].name + '\n' + '從影作品' + '\n' + data.results[i].known_for.original_name + data.results[i].known_for.name
             }
           }
         }
