@@ -22,11 +22,6 @@ bot.on('message', async (event) => {
   const msg = event.message.text
   let replyMsg = ''
 
-  const data = await rp({ uri: 'https://api.themoviedb.org/3/search/multi?api_key=57746325b3861531af10661c0bfbc930&language=en-US&query=' + msg + '&page=1&include_adult=false', json: true })
-  for (let i = 0; i < data.results.length; i++) {
-    replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
-  }
-
   try {
     if (event.message.type === 'text') {
       if (msg.indexOf('1') !== -1) {
@@ -55,12 +50,16 @@ bot.on('message', async (event) => {
         for (let i = 0; i < data.results.length; i++) {
           replyMsg += [i + 1] + '、' + data.results[i].original_name + data.results[i].name + '\n'
         }
-      }
-      else (msg.indexOf('5') !== -1) {
+      } else if (msg.indexOf('5') !== -1) {
         const data = await rp({ uri: 'https://api.themoviedb.org/3/tv/airing_today?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
         replyMsg = '今日放映電視節目' + '\n'
         for (let i = 0; i < data.results.length; i++) {
           replyMsg += [i + 1] + '、' + data.results[i].original_name + data.results[i].name + '\n' + data.results[i].overview + '\n'
+        }
+      } else {
+        const data = await rp({ uri: 'https://api.themoviedb.org/3/search/multi?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&query=' + msg + '&page=1&include_adult=false', json: true })
+        for (let i = 0; i < data.results.length; i++) {
+          replyMsg += [i + 1] + '、' + data.results[i].original_title + data.results[i].title + '\n' + data.results[i].release_date + '\n' + data.results[i].overview
         }
       }
     }
@@ -70,17 +69,6 @@ bot.on('message', async (event) => {
   }
   event.reply(replyMsg)
 })
-// let msg = ''
-// try {
-//   const data = await rp({ uri: 'https://api.themoviedb.org/3/movie/upcoming?api_key=57746325b3861531af10661c0bfbc930&language=zh-TW&page=1', json: true })
-//   msg = [{ text: '2020十大熱門新片有' }, { type: data.results[0].title, text: data.results[0].overview }, +{ type: data.results[1].title, text: data.results[1].overview }]
-
-//   // ['2020十大熱門新片有：' + data.results[0].title + data.results[0].overview + ',' + data.results[1].title + ',' + data.results[2].title + ',' + data.results[3].title + ',' + data.results[4].title + ',' + data.results[5].title + ',' + data.results[6].title + ',' + data.results[7].title + ',' + data.results[8].title + ',' + data.results[9].title + ',']
-// } catch (error) {
-//   msg = '發生錯誤'
-// }
-// event.reply(msg)
-// })
 
 // 在 port 啟動
 bot.listen('/', process.env.PORT, () => {
